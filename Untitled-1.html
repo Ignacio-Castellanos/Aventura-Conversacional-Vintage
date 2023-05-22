@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medieval Adventure</title>
+</head>
+<style>
+  body {
+    background-color: #f6f1e9;
+    font-family: 'Goudy Old Style', Garamond, 'Big Caslon', 'Times New Roman', serif;
+    margin: 20px;
+    color: #61472e;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  #output {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid #61472e;
+    background-color: #d5c6a7;
+    line-height: 1.4;
+  }
+
+  #input-container {
+    display: flex;
+  }
+
+  #input {
+    flex: 1;
+    padding: 5px;
+    font-family: inherit;
+    font-size: 16px;
+    border: 1px solid #61472e;
+  }
+
+  #submit {
+    padding: 5px 10px;
+    background-color: #61472e;
+    color: #f6f1e9;
+    border: none;
+    cursor: pointer;
+  }
+
+  #submit:hover {
+    background-color: #8c7154;
+  }
+</style>
+</head>
+<body>
+<h1>Aventura en Camelot</h1>
+
+<div id="output"></div>
+
+<div id="input-container">
+  <input type="text" id="input" autofocus />
+  <button id="submit">Enviar</button>
+</div>
+
+<script>
+  // Función para mostrar el texto de salida en la página
+  function printOutput(text) {
+    const output = document.getElementById('output');
+    output.innerHTML += `<p>${text}</p>`;
+  }
+
+  // Función para manejar la entrada del jugador y generar la respuesta
+  function handleInput() {
+    const input = document.getElementById('input');
+    const inputValue = input.value.toLowerCase().trim();
+
+    // Lógica del juego basada en la entrada del jugador
+    if (inputValue === 'start') {
+      printOutput('¡Bienvenido a la aventura! Te encuentras en un oscuro bosque.');
+    } else if (inputValue === 'explorar') {
+      printOutput('Decides explorar el bosque y encuentras un antiguo templo.');
+    } else if (inputValue === 'entrar') {
+      printOutput('Entras al templo y encuentras un tesoro brillante.');
+    } else if (inputValue === 'salir') {
+      printOutput('Sales del templo y regresas al bosque.');
+    } else if (inputValue === 'fin') {
+      printOutput('¡Gracias por jugar!');
+    } else {
+      printOutput('No entiendo esa acción. Intenta nuevamente.');
+    }
+
+    input.value = '';
+  }
+
+  // Evento de clic en el botón de envío
+  const submitButton = document.getElementById('submit');
+  submitButton.addEventListener('click', handleInput);
+
+  // Evento de presionar la tecla Enter
+  const inputField = document.getElementById('input');
+  inputField.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+      handleInput();
+    }
+  });
+
+  // Inicio de la aventura
+  printOutput('Escribe "start" para comenzar la aventura.');
+</script>
+</body>
+</html>

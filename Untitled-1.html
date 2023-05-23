@@ -64,13 +64,13 @@
 </div>
 
 <script>
-  // Función para mostrar el texto de salida en la página
+  
   function printOutput(text) {
     const output = document.getElementById('output');
     output.innerHTML += `<p>${text}</p>`;
   }
 
-  // Función para manejar la entrada del jugador y generar la respuesta
+
   function handleInput() {
     const input = document.getElementById('input');
     const inputValue = input.value.toLowerCase().trim();
@@ -93,11 +93,11 @@
     input.value = '';
   }
 
-  // Evento de clic en el botón de envío
+ 
   const submitButton = document.getElementById('submit');
   submitButton.addEventListener('click', handleInput);
 
-  // Evento de presionar la tecla Enter
+
   const inputField = document.getElementById('input');
   inputField.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
@@ -105,7 +105,7 @@
     }
   });
 
-  // Inicio de la aventura
+ 
   printOutput('Escribe "start" para comenzar la aventura.');
 </script>
 </body>
